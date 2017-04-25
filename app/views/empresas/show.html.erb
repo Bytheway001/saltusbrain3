@@ -1,0 +1,19 @@
+<div class="container">
+	<h1 class="text-center"><%= @empresa.nombre %></h1>
+	
+	<h2 class='text-center'>Personas que Trabajaron en esta empresa:</h2>
+	<table class="table table-rows">
+		<thead><tr><th>Nombre</th><th>Inicio</th><th>Fin</th><th>Al Corriente</th></thead>
+		<tbody>
+			<tr>
+				<% @empresa.cargos.each do |cargo| %>
+				<td><%= cargo.persona.nombre+" "+cargo.persona.apellido %></td>
+				<td><%= cargo.inicio %></td>
+				<td><%= cargo.fin %></td>
+				<td><%= cargo.current ? "SI" : "NO" %> </td>
+				<% end %>
+			</tr>
+		</tbody>
+
+	</table>
+</div>

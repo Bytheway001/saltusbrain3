@@ -1,0 +1,18 @@
+<div class="container">
+	<h1 class="text-center"><%= @school.nombre %></h1>
+	
+	<h2 class='text-center'>Personas que estudiaron en esta escuela:</h2>
+	<table class="table table-rows">
+		<thead><tr><th>Nombre</th><th>Inicio</th><th>Fin</th></thead>
+		<tbody>
+			<tr>
+				<% @school.studies.each do |study| %>
+				<td><%= study.persona.nombre+" "+study.persona.apellido %></td>
+				<td><%= study.inicio %></td>
+				<td><%= study.fin %></td>
+				<% end %>
+			</tr>
+		</tbody>
+
+	</table>
+</div>

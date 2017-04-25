@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse" style="margin-bottom:0px;border-radius: 0px">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'Saltus Brain', root_path, :class => 'navbar-brand' %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+          <li><p class="navbar-text">Bienvenido: <%= current_user.persona.nombre if current_user.persona %></p></li>
+          <li><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to 'Iniciar Sesion', new_user_session_path %></li>
+          <li><%= link_to 'Registrese', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

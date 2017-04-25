@@ -1,0 +1,13 @@
+<%= simple_form_for persona do |f| %>
+    <div class="row">
+      <%= f.input :nombre, hint: 'Solo Caracteres Alfabeticos', wrapper_html: { class: 'col-sm-4' }  %>
+      <%= f.input :apellido, hint: 'Solo Caracteres Alfabeticos', wrapper_html: { class: 'col-sm-4' }  %>
+      <%= f.input :email, hint: 'Ej: ejemplo@micorreo.com', wrapper_html: { class: 'col-sm-4' }  %>
+      <%= f.input :direccion,as: :text, wrapper_html: { class: 'col-sm-4' }  %>
+
+    </div>
+    <div class="row">
+        <%= f.button :button, :class=>'btn-primary' %>
+      <%= link_to 'Back', personas_path, :class=>'btn btn-primary' %>
+    </div>
+<% end %>

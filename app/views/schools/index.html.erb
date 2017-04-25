@@ -1,0 +1,16 @@
+<div class="container">
+	<h1 class="text-center">Listado de Escuelas</h1>
+	<table class="table table-rows">
+		<thead><tr><th>Nombre</th><th>Direccion</th><th>Creada En</th><th>Personas Asociadas</th></tr></thead>
+		<tbody>
+			<% @schools.each do |school| %>
+			<tr>
+				<td><%=link_to school.nombre,school %></td>
+				<td>DIRECCION</td>
+				<td><%= school.created_at %></td>
+				<td><%= school.personas.count %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

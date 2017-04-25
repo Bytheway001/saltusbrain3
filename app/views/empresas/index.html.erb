@@ -1,0 +1,16 @@
+<div class="container">
+	<h1 class="text-center">Listado de Empresas</h1>
+	<table class="table table-rows">
+		<thead><tr><th>Nombre</th><th>Direccion</th><th>Creada En</th><th>Personas Asociadas</th></tr></thead>
+		<tbody>
+			<% @empresas.each do |empresa| %>
+			<tr>
+				<td><%=link_to empresa.nombre,empresa %></td>
+				<td>DIRECCION</td>
+				<td><%= empresa.created_at %></td>
+				<td><%= empresa.personas.count %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

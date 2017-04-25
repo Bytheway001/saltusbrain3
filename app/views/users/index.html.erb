@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="text-center">Listado de usuarios</h1>
+  <table class="table table-rows">
+    <thead><tr><th>Email</th><th>Creado en</th><th>Ultima Actualizacion</th></tr></thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.created_at.strftime('%d/%m/%Y - %H:%I:%S') %></td>
+          <td><%= user.updated_at.strftime('%d/%m/%Y - %H:%I:%S') %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

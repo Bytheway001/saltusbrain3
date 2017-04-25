@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  persona: one
+  academy: one
+  nombre: MyString
+  inicio: 2017-03-20
+  fin: 2017-03-20
+
+two:
+  persona: two
+  academy: two
+  nombre: MyString
+  inicio: 2017-03-20
+  fin: 2017-03-20

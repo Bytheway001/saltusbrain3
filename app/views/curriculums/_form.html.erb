@@ -1,0 +1,30 @@
+<%= simple_form_for persona,:url=>@url do |f| %>
+    <section class="row">
+      <%= f.input :nombre, hint: 'Solo Caracteres Alfabeticos', wrapper_html: { class: 'col-sm-4' }  %>
+      <%= f.input :apellido, hint: 'Solo Caracteres Alfabeticos', wrapper_html: { class: 'col-sm-4' }  %>
+      <%= f.input :email, hint: 'Ej: ejemplo@micorreo.com', wrapper_html: { class: 'col-sm-4' }  %>
+      <%= f.input :direccion,as: :text, wrapper_html: { class: 'col-sm-4' }  %>
+    </section>
+
+
+    <h1 class="text-center">Experiencia Laboral</h1>
+    <section class="row">
+      <div id="empresas">
+        <table class="table table-bordered">
+          <thead>
+          <tr><th>Empresa</th><th>Cargp</th><th>Inicio</th><th>Fin</th></tr>
+          </thead>
+          <tbody id="cargos">
+          <%=f.simple_fields_for :cargos do |cargo| %>
+              <%= render 'cargo_fields', :f=> cargo %>
+          <% end %>
+          </tbody>
+        </table>
+        <%= link_to_add_association 'Agregar', f, :cargos,:data => {"association-insertion-node" => "#cargos","association-insertion-method"=>'append' } %>
+      </div>
+    </section>
+    <section class="row">
+      <%= f.button :button, :class=>'btn-primary' %>
+      <%= link_to 'Back', personas_path, :class=>'btn btn-primary' %>
+    </section>
+<% end %>

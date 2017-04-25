@@ -1,0 +1,5 @@
+<div class="container">
+<%= link_to "imprimir",print_path(params[:id],params[:modelo],format: :pdf), :target=>'_blank' %>
+  <%= render 'curriculums/previews/'+params[:modelo].to_s %>
+</div>
+

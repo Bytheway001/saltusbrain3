@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<% @persona = persona %>
+<div class="container">
+  <h1>Curriculum Modelo PLANO</h1>
+  <section class="row">
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Datos Personales</div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item row">
+              <div class="col-xs-3">Nombre:</div>
+              <div class="col-xs-9"> <%= @persona.nombre_completo %></div>
+            </li>
+            <li class="list-group-item row">
+              <div class="col-xs-3">Email:</div>
+              <div class="col-xs-9"> <%= @persona.email %></div>
+            </li>
+            <li class="list-group-item row">
+              <div class="col-xs-3">Fecha de Nac.:</div>
+              <div class="col-xs-9"> <%= @persona.fecha_nac.to_date.strftime('%d/%m/%Y') %></div>
+            </li>
+            <li class="list-group-item row">
+              <div class="col-xs-3">Sexo:</div>
+              <div class="col-xs-9"> <%= @persona.sexo_string %></div>
+            </li>
+            <li class="list-group-item row">
+              <div class="col-xs-3">Edo. Civil:</div>
+              <div class="col-xs-9"> <%= @persona.edo_civil_string %></div>
+            </li>
+            <li class="list-group-item row">
+              <div class="col-xs-3">Padre:</div>
+              <div class="col-xs-9"> <%= @persona.padre %></div>
+            </li>
+            <li class="list-group-item row">
+              <div class="col-xs-3">Madre:</div>
+              <div class="col-xs-9"> <%= @persona.madre %></div>
+            </li>
+            <li class="list-group-item row">
+              <div class="col-xs-3">Profesion:</div>
+              <div class="col-xs-9"> <%= @persona.profesion %></div>
+            </li>
+            <li class="list-group-item row">
+              <div class="col-xs-3">Sexo:</div>
+              <div class="col-xs-9"> <%= @persona.direccion %></div>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Datos de Contacto</div>
+        <div class="panel-body">
+          <table class="table table-rows">
+            <% if @persona.facebook and @persona.facebook !='' %>
+                <tr><td><%= fa_icon 'facebook-square' %> <%=@persona.facebook %></td></tr>
+            <% end %>
+            <% if @persona.facebook and @persona.twitter !='' %>
+                <tr><td><%= fa_icon 'twitter-square' %> <%=@persona.twitter %></td></tr>
+            <% end %>
+            <% if @persona.facebook and @persona.linkedin != ''%>
+                <tr><td><%= fa_icon 'linkedin-square' %> <%=@persona.linkedin %></td></tr>
+            <% end %>
+            <% if @persona.facebook and @persona.github !='' %>
+                <tr><td><%= fa_icon 'github-square' %> <%=@persona.github %></td></tr>
+            <% end %>
+            <% if @persona.telefono_fijo and @persona.telefono_fijo !='' %>
+                <tr><td><%= fa_icon 'phone' %> <%=@persona.telefono_fijo %></td></tr>
+            <% end %>
+            <% if @persona.telefono_celular and @persona.telefono_celular !='' %>
+                <tr><td><%= fa_icon 'mobile' %> <%=@persona.telefono_celular %></td></tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-success">
+        <div class="panel-heading">Experiencia Laboral</div>
+        <div class="panel-body">
+          <table class="table table-condensed">
+            <thead><tr><th>Cargo:</th><th>Empresa:</th><th>Desde:</th><th>Hasta:</th></tr></thead>
+            <tbody>
+            <% @persona.cargos.each do |cargo| %>
+                <tr>
+                  <td><%= cargo.nombre %></td>
+                  <td><%=cargo.empresa.nombre %></td>
+                  <td><%= cargo.inicio.to_date.strftime('%d/%m/%Y') %></td>
+                  <td><%= !cargo.current ? cargo.fin.to_date.strftime('%d/%m/%Y') : "Al presente" %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Estudios Realizados</div>
+        <div class="panel-body">
+          <table class="table table-condensed">
+            <thead><tr><th>Titulo</th><th>Institucion</th><th>Desde</th><th>Hasta</th></tr></thead>
+            <% @persona.studies.each do |study| %>
+                <tr>
+                  <td><%= study.titulo %></td>
+                  <td><%=study.school.nombre %></td>
+                  <td><%= study.inicio.to_date.strftime('%d/%m/%Y') %></td>
+                  <td><%= study.fin.to_date.strftime('%d/%m/%Y') %></td>
+                </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-warning">
+        <div class="panel-heading">Estudios Realizados</div>
+        <div class="panel-body">
+          <table class="table table-condensed">
+            <thead><tr><th>Titulo</th><th>Institucion</th><th>Desde</th><th>Hasta</th></tr></thead>
+
+            <% @persona.courses.each do |course| %>
+                <tr>
+                  <td><%= course.nombre %></td>
+                  <td><%=course.academy.nombre %></td>
+                  <td><%= course.inicio.to_date.strftime('%d/%m/%Y') %></td>
+                  <td><%= course.fin.to_date.strftime('%d/%m/%Y') %></td>
+                </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">Hobbies</div>
+        <div class="panel-body">
+          <% h=[] %>
+          <% @persona.hobbies.each do |hobby| %>
+              <% h<<hobby.nombre %>
+          <% end %>
+          <%= h.to_sentence(:two_words_connector=>',') %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="row">
+
+  </section>
+</div>

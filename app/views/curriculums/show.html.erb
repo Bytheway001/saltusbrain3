@@ -1,0 +1,15 @@
+<h1>La vista de un curriculum ya creado</h1>
+<ul>
+  <li>DATOS PERSONALES</li>
+  <li><%= @persona.nombre %></li>
+  <li><%= @persona.apellido %></li>
+  <li><%= @persona.email %></li>
+  <li><%= @persona.direccion %></li>
+</ul>
+<ul>
+  <li>Experiencia laboral</li>
+  <% @persona.cargos.each do |cargo| %>
+    <li><%= cargo.empresa.nombre %></li>
+    <li><%= cargo.nombre%></li>
+  <% end %>
+</ul>

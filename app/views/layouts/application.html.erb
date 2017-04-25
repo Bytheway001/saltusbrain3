@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Saltusdb3</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<%= render 'common/navbar' %>
+<% if notice %>
+    <div class="alert alert-custom">
+      <%= notice %>
+    </div>
+<% end %>
+<% if alert %>
+    <div class="alert alert-custom alert-error">
+      <%= alert %>
+    </div>
+<% end %>
+
+<%= yield %>
+
+
+
+</body>
+</html>

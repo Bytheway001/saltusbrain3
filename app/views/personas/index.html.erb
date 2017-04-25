@@ -1,0 +1,18 @@
+  <div class="container">
+    <h1 class="text-center">Listado de Personas</h1>
+
+    <table class="table table-rows">
+      <thead><tr><th>Nombre</th><th>Apellido</th><th>Email</th><th>Usuario</th></tr></thead>
+      <tbody>
+      <% @personas.each do |persona| %>
+        <tr>
+          <td><%= persona.nombre %></td>
+          <td><%= persona.apellido %></td>
+          <td><%= persona.email %></td>
+          <td><%= persona.user.id if persona.user %></td>
+          <td><%= link_to 'Edit', edit_persona_path(persona) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
