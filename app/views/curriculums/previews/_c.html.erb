@@ -1,0 +1,87 @@
+<div class="container-fluid index-c">
+	<div class="col-xs-12">
+		<h1 class="name-c"><%= @persona.nombre_completo %></h1>
+		<div class="col-xs-12 title-datos-c">
+			<p><%= fa_icon 'envelope' %> <%= @persona.email %></p>
+			<p><%= fa_icon 'calendar' %> <%= @persona.fecha_nac.to_date.strftime('%d/%m/%Y') %></p>
+		</div>
+		<div class="col-xs-12 title-datos-c">
+			<p><%= fa_icon 'graduation-cap' %> <%= @persona.profesion %></p>
+			<p><%= fa_icon 'gavel' %> <%= @persona.edo_civil_string %></p>
+			<p><%= fa_icon 'male' %>/<%= fa_icon 'female' %> <%= @persona.sexo_string %></p>
+		</div>
+		<div class="col-xs-12 title-datos-c">
+	        <p><%= fa_icon 'phone' %> <%=@persona.telefono_fijo %></p>
+	       	<p><%= fa_icon 'mobile' %> <%=@persona.telefono_celular %></p>
+        </div>
+        <div class="col-xs-12 redes-c">
+        	<% if @persona.facebook and @persona.facebook !='' %>
+                <p><%= fa_icon 'facebook-square icon' %> <%=@persona.facebook %></p>
+            <% end %>
+            <% if @persona.facebook and @persona.twitter !='' %>
+                <p><%= fa_icon 'twitter-square' %> <%=@persona.twitter %></p>
+            <% end %>
+            <% if @persona.facebook and @persona.linkedin != ''%>
+                <p><%= fa_icon 'linkedin-square' %> <%=@persona.linkedin %></p>
+            <% end %>
+            <% if @persona.facebook and @persona.github !='' %>
+                <p><%= fa_icon 'github-square' %> <%=@persona.github %></p>
+            <% end %>
+        </div>
+	</div>
+	<div class="col-xs-12 cv-seccion-c">
+		<div class="col-xs-12 title-seccion">
+			<h1>EXPERIENCIA</h1>
+		</div>
+		<div class="col-xs-12 cvdatos-c">
+		<% @persona.cargos.each do |cargo| %>
+			<div class="col-xs-12 datos-c">
+				<div class="col-xs-4 time-c">
+					
+					<p><%= cargo.inicio.to_date.strftime('%d/%m/%Y') %> - <%= !cargo.current ? cargo.fin.to_date.strftime('%d/%m/%Y') : "Al presente" %></p>
+				</div>
+				<div class="col-xs-8">
+					<p class="title-c"><%=cargo.empresa.nombre %></p>
+            		<p class="cargo-c"><%= cargo.nombre %></p>
+				</div>
+			</div>
+		<% end %>
+		</div>
+	</div>
+	<div class="col-xs-12 cv-seccion-c">
+		<div class="col-xs-12 title-seccion">
+			<h1>ESTUDIOS</h1>
+		</div>
+		<div class="col-xs-12 cvdatos-c">
+		<% @persona.studies.each do |study| %>
+			<div class="col-xs-12 datos-c">
+				<div class="col-xs-4 time-c">
+					<p><%= study.inicio.to_date.strftime('%d/%m/%Y') %> - <%= study.fin.to_date.strftime('%d/%m/%Y') %></p>
+				</div>
+				<div class="col-xs-8">
+					<p class="title-c"><%= study.titulo %></p>
+            		<p class="cargo-c"><%=study.school.nombre %></p>
+				</div>
+			</div>
+		<% end %>
+		</div>
+	</div>
+	<div class="col-xs-12 cv-seccion-c">
+		<div class="col-xs-12 title-seccion">
+			<h1>CURSOS</h1>
+		</div>
+		<div class="col-xs-12 cvdatos-c">
+		<% @persona.courses.each do |course| %>
+			<div class="col-xs-12 datos-c">
+				<div class="col-xs-4 time-c">
+					<p><%= course.inicio.to_date.strftime('%d/%m/%Y') %> - <%= course.fin.to_date.strftime('%d/%m/%Y') %></p>
+				</div>
+				<div class="col-xs-8">
+					<p class="title-c"><%= course.nombre %></p>
+	            	<p class="cargo-c"><%=course.academy.nombre %></p>
+				</div>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</div>
