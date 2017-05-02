@@ -2,10 +2,10 @@
 <h1 class="text-center">Seleccione un Modelo de CV</h1>
   <%= form_tag view_path(@persona) do %>
       <ul class="list-group">
-        <li class="list-group-item"><input type="radio" name="modelo" value="a" required>Modelo A</li>
-        <li class="list-group-item"><input type="radio" name="modelo" value="b">Modelo B</li>
-        <li class="list-group-item"><input type="radio" name="modelo" value="c">Modelo C</li>
-        <li class="list-group-item"><input type="radio" name="modelo" value="d">Modelo D</li>
+        <li class="list-group-item"><input type="radio" name="modelo" value="a" required>Elegante</li>
+        <li class="list-group-item"><input type="radio" name="modelo" value="b">Formal</li>
+        <li class="list-group-item"><input type="radio" name="modelo" value="c">Clasico</li>
+        <li class="list-group-item"><input type="radio" name="modelo" value="d">Creativo</li>
       </ul>
       <%= submit_tag 'Enviar' %>
   <% end %>

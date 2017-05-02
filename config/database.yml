@@ -9,8 +9,8 @@ default: &default
   pool: 5
   timeout: 5000
   host: localhost
-  username: root
-  password: ""
+  username: saltus_db
+  password: Silvereye1990
 
 development:
   <<: *default
