@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/horarios' => 'home#gethorarios'
   get '/pdf' =>'home#pdftest'
+  get '/panel'=>'home#panel'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'users/clear'
   get 'personas/clear' => 'personas#clear'

@@ -1,168 +1,144 @@
 <div class="container">
-  <%= simple_form_for @persona, html: { novalidate: false }, :url => curriculum_path(@persona) do |f| %>
-      <h1>Su CV</h1>
-      <section class="row">
-        <div class="panel panel-success" id="datos_personales">
-          <div class="panel-heading">1.- Datos Personales</div>
-          <div class="panel-body">
-            <div class="col-sm-4">
-              <%= f.input :email, :readonly=>true %>
-              <%= f.input :nombre,required:true %>
-              <%= f.input :segundo_nombre %>
-              <%= f.input :apellido,required:true %>
-              <%= f.input :fecha_nac, label:"Fecha de Nacimiento",input_html:{:class=>'datepicker',:autocomplete=>'off'} %>
-            </div>
-            <div class="col-sm-4">
-              <%= f.input :country,priority:["BR"],label:'Pais'  %>
-              <%= f.input :sexo, required:true, as: :select,collection:[['Masculino',1],['Femenino',0]] %>
-              <%= f.input :edo_civil,required:true, as: :select,collection:[['Soltero',0],['Casado',1],['Viudo',2],['Divorciado',3]] %>
-              <%= f.input :padre %>
-              <%= f.input :madre %>
+	<%= simple_form_for @persona, html: { novalidate: false }, :url => curriculum_path(@persona) do |f| %>
+	<h1>Su CV</h1>
+	<section class="row">
+		<div class="panel panel-success" id="datos_personales">
+			<div class="panel-heading">1.- Datos Personales</div>
+			<div class="panel-body">
+				<div class="col-sm-4">
+					<%= f.input :email, :readonly=>true,input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :nombre,required:true,input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :segundo_nombre,input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :apellido,required:true,input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :fecha_nac, label:"Fecha de Nacimiento",input_html:{:class=>'datepicker form-control input-sm',:autocomplete=>'off'} %>
+				</div>
+				<div class="col-sm-4">
+					<%= f.input :country,priority:["BR"],label:'Pais',input_html:{:class=>'form-control input-sm'}  %>
+					<%= f.input :sexo, required:true, as: :select,collection:[['Masculino',1],['Femenino',0]],input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :edo_civil,required:true, as: :select,collection:[['Soltero',0],['Casado',1],['Viudo',2],['Divorciado',3]],input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :padre,input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :madre,input_html:{:class=>'form-control input-sm'} %>
 
-            </div>
-            <div class="col-sm-4">
-              <%= f.input :profesion %>
-              <%= f.input :direccion,as: :text  %>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="row">
-        <!-- Datos de contacto -->
-        <div class="panel panel-success" id="info_contacto">
-          <div class="panel-heading">2.- Datos de Contacto</div>
-          <div class="panel-body">
-            <div class="col-sm-4">
-              <div class="form-group">
-                <%= f.label :facebook%>
-                <div class="input-group">
-                  <span class="input-group-addon">facebook.com/</span>
-                  <%= f.text_field :facebook, :class=>'form-control' %>
-                </div>
-              </div>
-              <div class="form-group">
-                <%= f.label :twitter %>
-                <div class="input-group">
-                  <span class="input-group-addon">@</span>
-                  <%= f.text_field :twitter, :class=>'form-control' %>
-                </div>
-              </div>
-              <div class="form-group">
-                <%= f.label :linkedin %>
-                <div class="input-group">
-                  <span class="input-group-addon">@</span>
-                  <%= f.text_field :linkedin, :class=>'form-control' %>
-                </div>
-              </div>
-              <div class="form-group">
-                <%= f.label :github %>
-                <div class="input-group">
-                  <span class="input-group-addon">@</span>
-                  <%= f.text_field :github, :class=>'form-control' %>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <%= f.input :telefono_fijo %>
-              <%= f.input :telefono_celular %>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="row">
-        <div class="panel panel-success">
-          <div class="panel-heading">3.- Experiencia Laboral</div>
-          <div class="panel-body">
-            <div id="empresas">
-              <table class="table table-bordered">
-                <thead>
-                <tr><th>Empresa</th><th>Cargp</th><th>Inicio</th><th>Fin</th><th>Al corriente</th><th>Eliminar</th></tr>
-                </thead>
-                <tbody id="cargos">
-                <%=f.simple_fields_for :cargos do |cargo| %>
-                    <%= render 'cargo_fields', :f=> cargo %>
-                <% end %>
-                </tbody>
-                <tfoot>
-                <tr><td colspan="6" class="text-center"> <%= link_to_add_association 'Agregar', f, :cargos,:data => {"association-insertion-node" => "#cargos","association-insertion-method"=>'append' }, :class=>'btn btn-primary' %></td></tr>
-                </tfoot>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="row">
-        <div class="panel panel-success">
-          <div class="panel-heading">4.- Estudios Realizados</div>
-          <div class="panel-body">
-            <div id="schools">
-              <table class="table table-bordered">
-                <thead>
-                <tr><th>Institucion</th><th>Titulo</th><th>Inicio</th><th>Fin</th><th>Al corriente</th><th>Eliminar</th></tr>
-                </thead>
-                <tbody id="studies">
-                <%=f.simple_fields_for :studies do |study| %>
-                    <%= render 'study_fields', :f=> study %>
-                <% end %>
-                </tbody>
-                <tfoot>
-                <tr><td colspan="6" class="text-center"> <%= link_to_add_association 'Agregar', f, :studies,:data => {"association-insertion-node" => "#studies","association-insertion-method"=>'append' }, :class=>'btn btn-primary' %></td></tr>
-                </tfoot>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
+				</div>
+				<div class="col-sm-4">
+					<%= f.input :profesion,input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :direccion,as: :text,input_html:{:class=>'form-control input-sm'}  %>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="row">
+		<!-- Datos de contacto -->
+		<div class="panel panel-success" id="info_contacto">
+			<div class="panel-heading">2.- Datos de Contacto</div>
+			<div class="panel-body">
+				<div class="col-sm-4">
+					<%= f.input :facebook, input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :twitter, input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :linkedin, input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :github, input_html:{:class=>'form-control input-sm'} %>
+				</div>
+				<div class="col-sm-4">
+					<%= f.input :telefono_fijo,input_html:{:class=>'form-control input-sm'} %>
+					<%= f.input :telefono_celular,input_html:{:class=>'form-control input-sm'} %>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="row">
+		<div class="panel panel-success">
+			<div class="panel-heading">3.- Experiencia Laboral</div>
+			<div class="panel-body">
+				<div id="empresas">
+					<table class="table table-bordered">
+						<thead>
+							<tr><th>Empresa</th><th>Cargo</th><th>Inicio</th><th>Fin</th><th>Al corriente</th><th>Eliminar</th></tr>
+						</thead>
+						<tbody id="cargos">
+							<%=f.simple_fields_for :cargos do |cargo| %>
+							<%= render 'cargo_fields', :f=> cargo %>
+							<% end %>
+						</tbody>
+						<tfoot>
+							<tr><td colspan="6" class="text-center"> <%= link_to_add_association 'Agregar', f, :cargos,:data => {"association-insertion-node" => "#cargos","association-insertion-method"=>'append' }, :class=>'btn btn-primary' %></td></tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="row">
+		<div class="panel panel-success">
+			<div class="panel-heading">4.- Estudios Realizados</div>
+			<div class="panel-body">
+				<div id="schools">
+					<table class="table table-bordered">
+						<thead>
+							<tr><th>Institucion</th><th>Titulo</th><th>Inicio</th><th>Fin</th><th>Al corriente</th><th>Eliminar</th></tr>
+						</thead>
+						<tbody id="studies">
+							<%=f.simple_fields_for :studies do |study| %>
+							<%= render 'study_fields', :f=> study %>
+							<% end %>
+						</tbody>
+						<tfoot>
+							<tr><td colspan="6" class="text-center"> <%= link_to_add_association 'Agregar', f, :studies,:data => {"association-insertion-node" => "#studies","association-insertion-method"=>'append' }, :class=>'btn btn-primary' %></td></tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
 
-      <section class="row">
-        <div class="panel panel-success">
-          <div class="panel-heading">5.- Cursos</div>
-          <div class="panel-body">
-            <div id="academies">
-              <table class="table table-bordered">
-                <thead>
-                <tr><th>Instituto</th><th>Titulo</th><th>Inicio</th><th>Fin</th><th>Al corriente</th><th>Eliminar</th></tr>
-                </thead>
-                <tbody id="courses">
-                <%=f.simple_fields_for :courses do |course| %>
-                    <%= render 'course_fields', :f=> course %>
-                <% end %>
-                </tbody>
-                <tfoot>
-                <tr><td colspan="6" class="text-center"> <%= link_to_add_association 'Agregar', f, :courses,:data => {"association-insertion-node" => "#courses","association-insertion-method"=>'append' }, :class=>'btn btn-primary' %></td></tr>
-                </tfoot>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="row">
-        <div class="panel panel-success">
-          <div class="panel-heading">5.- Cursos</div>
-          <div class="panel-body">
-            <div id="academies">
-              <table class="table table-bordered">
-                <thead>
-                <tr><th>Nombre</th><th>Eliminar</th></tr>
-                </thead>
-                <tbody id="hobbies">
-                <%=f.simple_fields_for :hobbies do |hobby| %>
-                    <%= render 'hobby_fields', :f=> hobby %>
-                <% end %>
-                </tbody>
-                <tfoot>
-                <tr><td colspan="2" class="text-center"> <%= link_to_add_association 'Agregar', f, :hobbies,:data => {"association-insertion-node" => "#hobbies","association-insertion-method"=>'append' }, :class=>'btn btn-primary' %></td></tr>
-                </tfoot>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
+	<section class="row">
+		<div class="panel panel-success">
+			<div class="panel-heading">5.- Cursos</div>
+			<div class="panel-body">
+				<div id="academies">
+					<table class="table table-bordered">
+						<thead>
+							<tr><th>Instituto</th><th>Titulo</th><th>Inicio</th><th>Fin</th><th>Al corriente</th><th>Eliminar</th></tr>
+						</thead>
+						<tbody id="courses">
+							<%=f.simple_fields_for :courses do |course| %>
+							<%= render 'course_fields', :f=> course %>
+							<% end %>
+						</tbody>
+						<tfoot>
+							<tr><td colspan="6" class="text-center"> <%= link_to_add_association 'Agregar', f, :courses,:data => {"association-insertion-node" => "#courses","association-insertion-method"=>'append' }, :class=>'btn btn-primary' %></td></tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="row">
+		<div class="panel panel-success">
+			<div class="panel-heading">6.- Hobbies/Otros Conocimientos</div>
+			<div class="panel-body">
+				<div id="academies">
+					<table class="table table-bordered">
+						<thead>
+							<tr><th>Nombre</th><th>Eliminar</th></tr>
+						</thead>
+						<tbody id="hobbies">
+							<%=f.simple_fields_for :hobbies do |hobby| %>
+							<%= render 'hobby_fields', :f=> hobby %>
+							<% end %>
+						</tbody>
+						<tfoot>
+							<tr><td colspan="2" class="text-center"> <%= link_to_add_association 'Agregar', f, :hobbies,:data => {"association-insertion-node" => "#hobbies","association-insertion-method"=>'append' }, :class=>'btn btn-primary' %></td></tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
-      <section class="row" style="margin-bottom: 80px">
-        <%= f.button  :button,'Enviar Datos', :class=>'btn-primary' %>
-        <%= link_to 'Volver', personas_path, :class=>'btn btn-primary' %>
-      </section>
-  <% end %>
+	<section class="row" style="margin-bottom: 80px">
+		<%= f.button  :button,'Enviar Datos', :class=>'btn-primary' %>
+		<%= link_to 'Volver', personas_path, :class=>'btn btn-primary' %>
+	</section>
+	<% end %>
 </div>

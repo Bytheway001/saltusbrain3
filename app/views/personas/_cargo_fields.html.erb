@@ -1,8 +1,8 @@
 <tr class="nested-fields">
-  <td><%= f.input_field :enterprise, :url => autocomplete_empresa_nombre_personas_path, :as => :autocomplete, :class=>'form-control'  %></td>
-  <td><%= f.input_field :nombre, as: :string,:class=>'form-control'  %></td>
-  <td><%= f.input_field :inicio, as: :string,:class=>'form-control datepicker-i'  %></td>
-  <td><%= f.input_field :fin, as: :string,:class=>'form-control datepicker-f'  %></td>
+  <td><%= f.input_field :enterprise, :url => autocomplete_empresa_nombre_personas_path, :as => :autocomplete, :class=>'form-control input-sm',:required=>'true'  %></td>
+  <td><%= f.input_field :nombre, as: :string,:class=>'form-control input-sm',:required=>'true' %></td>
+  <td><%= f.input_field :inicio, as: :string,:class=>'form-control datepicker input-sm',:required=>'true'  %></td>
+  <td><%= f.input_field :fin, as: :string,:class=>'form-control datepicker input-sm',:required=>'true'  %></td>
   <td><%= f.input_field :current, :collection => ["SI"], :as=> 	:check_boxes, :class=>'current' %></td>
-  <td><%= link_to_remove_association "Eliminar", f, :class=>'btn btn-danger' %></td>
+  <td><%= link_to_remove_association "Eliminar", f, :class=>'btn btn-danger btn-sm' %></td>
 </tr>

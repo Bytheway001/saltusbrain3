@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 #Rafa Custom Gems
+gem 'bootstrap-social-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'devise'
@@ -14,10 +15,11 @@ gem 'simple_form'
 gem 'country_select'
 gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
-gem 'jquery-ui-themes'
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'font-awesome-rails'
 gem 'twitter-bootstrap-rails'
 gem 'mysql2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record

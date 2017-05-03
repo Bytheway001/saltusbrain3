@@ -1,0 +1,69 @@
+<div class="container">
+  <section class="row">
+    <h1 class="text-center">PAGINA DE INICIO</h1>
+    <p>Aqui es donde el usuario entra a saltus desde cero</p>
+  </section>
+  <section class="row">
+    <h1>Links de navegacion</h1>
+    <table class="table table-bordered">
+      <tr>
+        <td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#askemail">Generador de Curriculum</button></td>
+        <td>Generador de Carton de Visita</td>
+        <td><%=link_to "PDF",'/pdf' %></td>
+        <td><button type='button' onclick='miFuncion()'>Mifuncion</button></td>
+      </tr>
+    </table>
+  </section>
+  <section id='ayuda'>
+    
+  </section>
+  <section class="row">
+    <h1>Modelos y acciones</h1>
+    <table class="table table-bordered">
+      <tr><th>Personas (<%= Persona.all.count %>)</th>
+        <td><%=link_to 'New', new_persona_path %></td>
+        <td><%=link_to 'Index', personas_path %></td>
+        <td><%=link_to 'Clear', personas_clear_path %></td>
+      </tr>
+      <tr><th>Usuarios (<%= User.all.count %>)</th>
+        <td><%=link_to 'New', new_user_registration_path %></td>
+        <td><%=link_to 'Index', users_path %></td>
+        <td><%=link_to 'Clear', users_clear_path %></td>
+      </tr>
+      <tr><th>Empresas (<%= Empresa.all.count %>)</th>
+        <td><%=link_to 'New', new_empresa_path %></td>
+        <td><%=link_to 'Index', empresas_path %></td>
+        <td><%=link_to 'Clear', empresas_clear_path %></td>
+      </tr>
+      <tr><th>Escuelas (<%= School.all.count %>)</th>
+        <td><%=link_to 'New', new_school_path %></td>
+        <td><%=link_to 'Index', schools_path %></td>
+        <td><%=link_to 'Clear', schools_clear_path %></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Modal para preguntar email -->
+
+  <div class="modal fade" id="askemail" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Ingrese su Email</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_tag '/curriculums' do |f| %>
+              <div class="input-group">
+                <%= text_field_tag "email",'', :class=>'form-control input-sm',:placeholder=>'EJ: micorreo@gmail.com' %>
+                <span class="input-group-btn"><%= submit_tag 'Enviar', :class=>'btn btn-primary btn-sm' %></span>
+              </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

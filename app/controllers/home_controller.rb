@@ -1,9 +1,14 @@
 class HomeController < ApplicationController
   def index
+  	flash[:alert]='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  end
+
+  def panel
+  	
   end
 
   def building
-    render :layout => 'building'
+    
   end
 
 

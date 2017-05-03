@@ -13,9 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require bootstrap-datepicker
 //= require jquery-ui/widgets/autocomplete
-//= require jquery-ui/widgets/datepicker
 //= require autocomplete-rails
 //= require turbolinks
 //= require cocoon
-//= require_tree .
+$(document).on('cocoon:after-insert', function(e, insertedItem) {
+	$('.datepicker').datepicker({
+		format: 'dd/mm/yyyy',
+		autoclose: true
+	});
+})
+$(document).on('turbolinks:load',function(){
+	$('.datepicker').datepicker({
+		format: 'dd/mm/yyyy',
+		autoclose: true
+	});
+	$('#image_logo').fadeIn(4000)
+})
