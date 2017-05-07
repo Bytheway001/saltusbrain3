@@ -57,7 +57,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.12.2)
+    coffee-script-source (1.8.0)
     commonjs (0.2.7)
     concurrent-ruby (1.0.5)
     countries (2.0.8)
@@ -211,6 +211,7 @@ DEPENDENCIES
   byebug
   cocoon
   coffee-rails (~> 4.2)
+  coffee-script-source (= 1.8.0)
   country_select
   devise
   font-awesome-rails
@@ -233,4 +234,4 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 BUNDLED WITH
-   1.13.6
+   1.14.6

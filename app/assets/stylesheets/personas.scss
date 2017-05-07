@@ -20,14 +20,14 @@
 	&:focus{
 		border-bottom: orange 2px solid;
 	}
-	&:read-only{
-		display:none
-	}
+
 }
 input.input-sm{
 	&:-moz-read-only{
-		background-color:black!important;
 		font-style: italic
 	}
 }
 
+input.read-only{
+	background-color:black!important;
+}
