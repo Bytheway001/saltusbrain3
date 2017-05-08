@@ -31,6 +31,7 @@
 
 .cvinfo-b h3 {
 	font-size: 15px;
+	color: #000;
 }
 
 .cvdatos-b {
@@ -41,12 +42,11 @@
 
 .cvdatos-b p {
 	display: inline-block;
-	margin: 15px 10px;
-	font-size: 18px
+	margin: 10px;
+	font-size: 18px;
 }
 
 .cv-datos-b {
-	/*border-top: 5px solid rgba(32,124,202,1);*/
 	padding-left: 0;
 	margin-top: 10px;
 }
@@ -68,10 +68,11 @@
 
 .infop-b {
 	margin: 0 0 15px 0;
+	color: #000;
 }
 
 .info-data {
-	margin: 0 0 10px 0;
+	margin: 0 0 15px 0;
 	border-left: 10px solid rgba(32,124,202,1);
 }
 
@@ -102,10 +103,10 @@
 				<h4>DATOS PERSONALES</h4>
 			</div>
 			<div class="col-xs-9">
-				<p><%= fa_icon 'calendar' %> <%= @persona.fecha_nac.to_date.strftime('%d/%m/%Y') %></p>
-	            <p><%= fa_icon 'graduation-cap' %> <%= @persona.profesion %></p>
-				<p><%= fa_icon 'gavel' %> <%= @persona.edo_civil_string %></p>
-				<p><%= fa_icon 'male' %>/<%= fa_icon 'female' %> <%= @persona.sexo_string %></p>
+				<p>Fecha de Nacimiento: <%= @persona.fecha_nac.to_date.strftime('%d/%m/%Y') %></p>
+	            <p>Profesion: <%= @persona.profesion %></p>
+				<p>Edo. Civil: <%= @persona.edo_civil_string %></p>
+				<p>Sexo: <%= @persona.sexo_string %></p>
 	        </div>
         </div>
         <div class="col-xs-12 cvdatos-b">
@@ -113,8 +114,16 @@
         		<h4>CONTACTO</h4>
         	</div>
 	        <div class="col-xs-9">
-	        	<p><%= fa_icon 'envelope' %> <%= @persona.email %></p>
-	        	 <% if @persona.facebook and @persona.facebook !='' %>
+	        	<p>Correo: <%= @persona.email %></p>
+	        	<br>
+	        	<% if @persona.telefono_fijo and @persona.telefono_fijo !='' %>
+                    <p>Telefono: <%=@persona.telefono_fijo %></p>
+                <% end %>
+                <% if @persona.telefono_celular and @persona.telefono_celular !='' %>
+                    <p>Celular: <%=@persona.telefono_celular %></p>
+                <% end %>
+                <br>
+	        	<% if @persona.facebook and @persona.facebook !='' %>
                     <p><%= fa_icon 'facebook-square' %> <%=@persona.facebook %></p>
                 <% end %>
                 <% if @persona.facebook and @persona.twitter !='' %>
@@ -125,12 +134,6 @@
                 <% end %>
                 <% if @persona.facebook and @persona.github !='' %>
                     <p><%= fa_icon 'github-square' %> <%=@persona.github %></p>
-                <% end %>
-                <% if @persona.telefono_fijo and @persona.telefono_fijo !='' %>
-                    <p><%= fa_icon 'phone' %> <%=@persona.telefono_fijo %></p>
-                <% end %>
-                <% if @persona.telefono_celular and @persona.telefono_celular !='' %>
-                    <p><%= fa_icon 'mobile' %> <%=@persona.telefono_celular %></p>
                 <% end %>
 	        </div>
         </div>

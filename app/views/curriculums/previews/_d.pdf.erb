@@ -23,14 +23,24 @@
 	text-align: center;
 }
 
+.info-d-sec {
+	padding-top: 20px;
+}
+
+.info-d-sec p {
+	margin: 0 auto;
+}
+
 .title-d {
-	height: 250px;
+	height: 200px;
 	padding: 20px 0;
 }
 
 .datosp-d {
 	height: auto;
 	font-size: 20px;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .datosp-d div {
@@ -44,6 +54,8 @@
 .redesp-d {
 	height: auto;
 	padding: 5px 25px;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .redesp-d .fa {
@@ -107,24 +119,24 @@
 		<div class="col-xs-12 info-d">
 			<div class="col-xs-12 datosp-d">
 				<h2>Datos Personales</h2>
-				<div class="col-xs-12">
-					<p class="glyphicon glyphicon-envelope icon-d"></p>
+				<div class="col-xs-12 info-d-sec">
+					<p>Email</p>
 					<p><%= @persona.email %></p>
 				</div>
-				<div class="col-xs-12">
-					<p class="glyphicon glyphicon-calendar icon-d"></p>
+				<div class="col-xs-12 info-d-sec">
+					<p>Fecha de nacimiento</p>
 					<p><%= @persona.fecha_nac.to_date.strftime('%d/%m/%Y') %></p>
 				</div>
-				<div class="col-xs-12">
-					<p class="glyphicon glyphicon-education icon-d"></p>
+				<div class="col-xs-12 info-d-sec">
+					<p>Profesion</p>
 					<p><%= @persona.profesion %></p>
 				</div>
-				<div class="col-xs-12">
-					<p class="glyphicon glyphicon-heart icon-d"></p>
+				<div class="col-xs-12 info-d-sec">
+					<p>Edo. Civil</p>
 					<p><%= @persona.edo_civil_string %></p>
 				</div>
-				<div class="col-xs-12">
-					<p class="glyphicon glyphicon-user icon-d"></p>
+				<div class="col-xs-12 info-d-sec">
+					<p>Sexo</p>
 					<p><%= @persona.sexo_string %></p>
 				</div>
 			</div>

@@ -74,17 +74,17 @@
 	<div class="col-xs-12">
 		<h1 class="name-c"><%= @persona.nombre_completo %></h1>
 		<div class="col-xs-12 title-datos-c">
-			<p><%= fa_icon 'envelope' %> <%= @persona.email %></p>
-			<p><%= fa_icon 'calendar' %> <%= @persona.fecha_nac.to_date.strftime('%d/%m/%Y') %></p>
+			<p>Email: <%= @persona.email %></p>
+			<p>Fecha de nacimiento: <%= @persona.fecha_nac.to_date.strftime('%d/%m/%Y') %></p>
 		</div>
 		<div class="col-xs-12 title-datos-c">
-			<p><%= fa_icon 'graduation-cap' %> <%= @persona.profesion %></p>
-			<p><%= fa_icon 'gavel' %> <%= @persona.edo_civil_string %></p>
-			<p><%= fa_icon 'male' %>/<%= fa_icon 'female' %> <%= @persona.sexo_string %></p>
+			<p>Profesion: <%= @persona.profesion %></p>
+			<p>Edo. Civil: <%= @persona.edo_civil_string %></p>
+			<p>Sexo: <%= @persona.sexo_string %></p>
 		</div>
 		<div class="col-xs-12 title-datos-c">
-	        <p><%= fa_icon 'phone' %> <%=@persona.telefono_fijo %></p>
-	       	<p><%= fa_icon 'mobile' %> <%=@persona.telefono_celular %></p>
+	        <p>Telefono: <%=@persona.telefono_fijo %></p>
+	       	<p>Celular: <%=@persona.telefono_celular %></p>
         </div>
         <div class="col-xs-12 redes-c">
         	<% if @persona.facebook and @persona.facebook !='' %>
