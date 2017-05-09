@@ -9,20 +9,20 @@ default: &default
   pool: 5
   timeout: 5000
   host: localhost
-  username: root
-  password: ''
+  username: supersb1_db
+  password: Silvereye1990*
 
 development:
   <<: *default
-  database: saltus_dev
+  database: supersb1_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: saltus_test
+  database: supersb1_test
 
 production:
   <<: *default
-  database: saltus_prod
+  database: Supersb1_prod
