@@ -25,4 +25,4 @@ test:
 
 production:
   <<: *default
-  database: Supersb1_prod
+  database: supersb1_prod

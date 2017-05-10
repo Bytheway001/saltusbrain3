@@ -1,0 +1,35 @@
+/* line 4, C:/rails/saltusbrain3/app/assets/stylesheets/personas.scss */
+.input-group-addon {
+  padding: 6px !important;
+}
+
+/* line 7, C:/rails/saltusbrain3/app/assets/stylesheets/personas.scss */
+.input-group-addon {
+  background: none !important;
+  text-align: left !important;
+  min-width: 100px;
+  font-size: 0.8em;
+}
+
+/* line 14, C:/rails/saltusbrain3/app/assets/stylesheets/personas.scss */
+.input-sm {
+  background: none !important;
+  border: none;
+  box-shadow: none;
+  color: orange;
+  border-bottom: orange 2px solid;
+}
+/* line 20, C:/rails/saltusbrain3/app/assets/stylesheets/personas.scss */
+.input-sm:focus {
+  border-bottom: orange 2px solid;
+}
+
+/* line 26, C:/rails/saltusbrain3/app/assets/stylesheets/personas.scss */
+input.input-sm:-moz-read-only {
+  font-style: italic;
+}
+
+/* line 31, C:/rails/saltusbrain3/app/assets/stylesheets/personas.scss */
+input.read-only {
+  background-color: black !important;
+}
