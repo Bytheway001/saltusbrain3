@@ -1,9 +1,4 @@
-function miFuncion(){
-	$.get('/horarios',function(data){
-		$.each(data,function(){
-			if(this.status!='ABIERTO'){
-				$("#ayuda").html(this.nombre)
-			}
-		})
-	},'JSON')
-}
+$(document).on('turbolinks:load',function(){
+	$('#image_logo').fadeIn(1500,function(){
+	})
+})

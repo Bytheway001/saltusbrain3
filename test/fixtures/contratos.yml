@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  servicio: one
+  inicio: 2017-05-11
+  fin: 2017-05-11
+
+two:
+  user: two
+  servicio: two
+  inicio: 2017-05-11
+  fin: 2017-05-11

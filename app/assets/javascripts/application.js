@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require jquery-ui/widgets/autocomplete
 //= require autocomplete-rails
@@ -29,5 +29,5 @@ $(document).on('turbolinks:load',function(){
 		format: 'dd/mm/yyyy',
 		autoclose: true
 	});
-	$('#image_logo').fadeIn(4000)
+
 })

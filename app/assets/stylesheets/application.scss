@@ -14,17 +14,30 @@
  *= require_self
  *= require font-awesome
  *= require jquery-ui
- *= require bootstrap_superhero
  *= require bootstrap-datepicker3
  *= require bootstrap-social
- *= require twitter-bootstrap-static/sprites
-
  */
  
-.alert{
-	text-align:center;
-	height: 20px;
-	line-height: 20px;
-	margin:0px!important;
-	padding:0px!important;
-}
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ .alert{
+ 	text-align:center;
+ 	height: 20px;
+ 	line-height: 20px;
+ 	margin:0px!important;
+ 	padding:0px!important;
+ }
+ $blue-base:#023d7f;
+ $red-hover:#bc0300;
+ .navbar-inverse{
+ 	background-color: $blue-base;
+ 	border-radius:0px;
+ 	border:none;
+ 	.navbar-nav li a{
+ 		color:white;
+ 		:hover{
+ 			background-color:$red-hover;
+
+ 		}
+ 	}
+ }

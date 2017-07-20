@@ -6,6 +6,11 @@ git_source(:github) do |repo_name|
 end
 
 #Rafa Custom Gems
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'activeadmin'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
 gem 'bootstrap-social-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
@@ -17,7 +22,6 @@ gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'font-awesome-rails'
-gem 'twitter-bootstrap-rails'
 gem 'mysql2'
 gem 'coffee-script-source', '1.8.0'
 
