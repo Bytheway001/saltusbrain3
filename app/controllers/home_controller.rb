@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	flash[:alert]='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
   end
 
   def panel

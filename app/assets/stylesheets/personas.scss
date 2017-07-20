@@ -1,33 +1,16 @@
 // Place all the styles related to the personas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.input-group-addon{
-	padding:6px!important;
-}
-.input-group-addon{
-	background:none!important;
-	text-align:left!important;
-	min-width:100px;
-	font-size:0.8em;
-}
-
 .input-sm{
-	background:none!important;
 	border:none;
 	box-shadow:none;
-	color:orange;
-	border-bottom: orange 2px solid;
+	border-bottom:black 2px solid;
 	&:focus{
-		border-bottom: orange 2px solid;
-	}
-
-}
-input.input-sm{
-	&:-moz-read-only{
-		font-style: italic
+		box-shadow:none;
+		border-bottom:black 2px solid;
 	}
 }
-
-input.read-only{
-	background-color:black!important;
+input.readonly{
+	background-color:#023d7f!important;
+	color:white;
 }
